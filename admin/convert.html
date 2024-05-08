@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+	var types = ["live", "photos", "video"];
+</script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ryan's Template Converter</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+		}
+
+
+		html {
+			overflow-x: hidden;
+			min-width: 320px;
+			scroll-behavior: smooth;
+		}
+
+		body, input, textarea, select, button {
+			font-family: "Roboto", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			font-size: 1.1em;
+		}
+
+		*,
+		*::after,
+		*::before {
+			box-sizing: border-box;
+		}
+
+		.layout {
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		textarea {
+			width: 100%;
+			height: 200px;
+
+			margin: 0;
+		}
+
+		.area {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+
+		.copy-area {
+			display: flex;
+    		gap: 10px;
+			align-items: center;
+		}
+
+		.copy-message {
+			display: none;
+			color: green;
+			font-weight: bold;
+		}
+
+		.split {
+			width: 100%;
+			display: flex;
+			gap: 10px;
+		}
+
+		.split>.left,
+		.split>.right {
+			flex: 1 1 50%;
+			align-self: flex-end;
+		}
+
+		.load_buttons {
+			display: flex;
+			gap: 10px;
+		}
+
+
+		.output {
+			padding: 10px;
+			background-color: lightblue;
+			border-radius: 20px;
+		}
+
+		select,
+		button {
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: lightgrey;
+		}
+
+		.preview,
+		textarea,
+		select,
+		button {
+			border: 1px solid lightgrey;
+			border-radius: 20px;
+		}
+
+		.preview,
+		textarea {
+			border: 1px solid lightgrey;
+			border-radius: 20px;
+			padding: 20px;
+			max-height: 200px;
+			overflow-y: auto;
+		}
+
+		.preview > .preview-text {
+			color: grey;
+			font-style: italic;
+		}
+
+        input, textarea, select {
+            outline: 2px solid transparent;
+            transition: outline-color 0.3s ease; /* Add smooth transition */
+        }
+
+
+	</style>
+</head>
+
+<body>
+	<div class="layout">
+		<div class="split">
+			<div class="left area">
+				<div class="load_buttons" id="data_buttons">
+
+				</div>
+				<textarea id="textInput" placeholder="Paste text data here..."></textarea>
+			</div>
+			<div class="right area">
+				<div class="load_buttons" id="template_buttons">
+
+				</div>
+				<textarea id="textInputTemplate" placeholder="Paste template here..."></textarea>
+			</div>
+		</div>
+		<div class="area output">
+			<div class="load_buttons">
+				<!--
+		<select id="templateType">
+			<option value="live">Live</option>
+			<option value="photos">Photos</option>
+		</select>
+		-->
+			<button onclick="convertText()">Convert</button>
+			</div>
+
+			
+			<textarea id="output" placeholder="Converted HTML will appear here..." readonly></textarea>
+
+			<div class="copy-area">
+				<button id="copy" onclick="copyToClipboard()">Copy to Clipboard</button>
+				<div class="copy-message" id="copyMessage">Copied!</div>
+			</div>
+		</div>
+		<div class="area">
+			<div class="preview" id="preview"><span class="preview-text">Preview will show here, though no styling will be shown.</span></div>
+		</div>
+	</div>
+	<script>
+
+		var templateType = null;
+
+		function insertData(id, data, color = 'green', delay = 1000) {
+			var inputElement = document.getElementById(id);
+			if(data){
+				inputElement.value = data;
+				inputElement.style.outlineColor = color;
+				setTimeout(function() {
+					
+					if (inputElement) {
+						inputElement.style.outlineColor = 'transparent';
+					}
+				}, delay);
+			}
+
+		}
+
+
+		// Function to create buttons
+		function createButtons(containerId, action) {
+			var container = document.getElementById(containerId);
+			container.innerHTML = "";
+
+			types.forEach(function (type) {
+				var button = document.createElement("button");
+				button.textContent = "Load " + type.charAt(0).toUpperCase() + type.slice(1) + " " + action;
+				button.addEventListener("click", function () {
+					if (action === "Data") {
+						loadData(type);
+					} else if (action === "Template") {
+						loadTemplate(type);
+					}
+				});
+				container.appendChild(button);
+			});
+		}
+
+
+
+		function convertText() {
+			var textInput = document.getElementById("textInput").value.trim();
+			// var templateType =  null; // document.getElementById("templateType").value;
+			var outputTextarea = document.getElementById("output");
+
+			var preview = document.getElementById("preview");
+			var templateInput = document.getElementById("textInputTemplate").value.trim();
+
+			var htmlTemplate = '';
+
+			var items = textInput.split('\n\n'); // Split input by empty lines
+			htmlTemplate = items.map(item => {
+			var data = item.split('\n').reduce((acc, line) => {
+				var index = line.indexOf(':');
+				if (index !== -1) {
+					var key = line.slice(0, index).trim().toLowerCase();
+					var value = line.slice(index + 1).trim();
+					acc[key] = value;
+				}
+				return acc;
+			}, {});
+
+				// Skip if data.hidden is true
+				if (data.hidden === "true") {
+					return '';
+				}
+
+				// video
+				if (data.video) {
+					console.log(data.video);
+					
+					// Check if it's a Vimeo link
+					if (data.video.includes("vimeo.com")) {
+
+						
+						// Check if it contains the Vimeo video ID pattern
+						const vimeoIdRegex = /\/(\d{8,})/;
+						
+						const match = data.video.match(vimeoIdRegex);
+
+						
+
+
+						if (match) {
+						// Replace data.video with the Vimeo video ID
+							
+							data.video = match[1];
+						}
+					}
+				}
+
+				if (data.tags) {
+					let temp_tags = "";
+
+					// Splitting the tags string by comma
+					var tagsArray = data.tags.split(",");
+
+					// Looping through each tag
+					for (var i = 0; i < tagsArray.length; i++) {
+					// Trimming whitespace from each tag
+					var tag = tagsArray[i].trim();
+					// Creating <li> tag for each tag and adding it to temp_tags
+					temp_tags += "<li>" + tag + "</li>";
+					}
+
+					data.tags_html = temp_tags;
+
+				}
+
+				// classes
+				var classes = "slide";
+
+				// portfolio item
+				if (templateType === "portfolio") {
+					classes += " grid-item";
+				}
+
+				var escapedTitle = (data.title) ? data.title.replace(/"/g, '\'') : "";
+
+				return eval('`' + templateInput + '\n`');
+
+			}).join('');
+
+			preview.innerHTML = htmlTemplate;
+
+			// reduces new lines and trims
+			let data = htmlTemplate.replace(/\s*(?:\r?\n)/g, '\n').trim();
+			insertData('output', data);
+
+			//outputTextarea.value = ;
+		}
+
+		function loadData(filename) {
+			let filepath = "data/" + filename + ".txt";
+			fetch(filepath)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.text();
+				})
+				.then(data => {
+					console.log("Data fetched successfully:", data);
+					// .getElementById('textInput').value = data;
+
+					insertData('textInput', data);
+
+					templateType = filename;
+					//document.getElementById('templateType').value = templateType;
+
+					loadTemplate(filename);
+
+				})
+				.catch(error => {
+					console.error('Error loading data:', error);
+				});
+		}
+
+		function loadTemplate(filename) {
+			let filepath = "templates/" + filename + ".txt";
+			console.log(filepath);
+			fetch(filepath)
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok');
+					}
+					return response.text();
+				})
+				.then(data => {
+					console.log("Data fetched successfully:", data);
+					insertData('textInputTemplate', data);
+				})
+				.catch(error => {
+					console.error('Error loading data:', error);
+				});
+		}
+
+		function copyToClipboard() {
+			var outputTextarea = document.getElementById("output");
+			outputTextarea.select();
+			document.execCommand("copy");
+
+			var copyMessage = document.getElementById("copyMessage");
+			copyMessage.style.display = "block";
+			setTimeout(function () {
+				copyMessage.style.display = "none";
+			}, 1500); // Hide the message after 1.5 seconds
+		}
+
+		function init() {
+
+			createButtons("data_buttons", "Data");
+			// createButtons("template_buttons", "Template");
+		}
+
+		init();
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>

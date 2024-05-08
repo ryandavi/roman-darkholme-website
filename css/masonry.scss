@@ -1,0 +1,174 @@
+
+.masonry {
+	min-height: 100dvh;
+	>.slide {
+		>.wrapper {
+			>img.image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover
+			}
+		}
+
+	}
+}
+
+
+// general slide
+.slide {
+	overflow: hidden;
+	position: relative;
+	// cursor: pointer;
+	z-index: 1;
+	border-radius: var(--border-radius);
+
+	&.hidden {
+		display: none;
+	}
+
+
+
+	>.wrapper {
+		width: 100%;
+		height: 100%;
+		display: block;
+		color: inherit;
+
+		>img.image {
+			width: auto;
+			height: 100%;
+			opacity: 0;
+
+			z-index: -1;
+			position: relative;
+			display: block;
+			transition:
+				opacity 1000ms var(--easing),
+				transform var(--easingDuration) var(--easing),
+				filter var(--easingDuration) var(--easing);
+			
+			&.fade-in {
+				opacity: 1;
+			}
+
+		}
+
+		>.meta {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+
+			>.title {
+				font-weight: bold;
+			}
+		}
+
+		>.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+
+			background-color: var(--overlayColor);
+			transition: opacity var(--easingDuration) linear;
+
+			display: flex;
+			overflow: hidden;
+			padding: var(--slidePadding);
+
+			>a.external_link {
+				background-color: var(--buttonColor);
+				color: black;
+				text-decoration: none;
+				display: block;
+				padding: 10px 15px;
+				border-radius: 100px;
+				margin-top: 1rem;
+				text-transform: uppercase;
+				letter-spacing: .251px;
+				font-size: .95rem;
+				font-weight: bold;
+				transition: opacity var(--easingDuration) linear;
+
+				&:hover {
+					opacity: .75;
+				}
+			}
+		}
+	}
+
+	// show overlay
+	&:hover {
+		>.wrapper {
+			>img.image {
+				transform: scale(var(--scaleAmount));
+				filter: blur(var(--blurAmount));
+			}
+
+			>.overlay {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+
+
+.masonry {
+	--gap: var(--spacing-small);
+	--columns: 4;
+	--column-width: calc(100% / var(--columns));
+	--item-width-diff: calc(calc(var(--gap) * calc(var(--columns) - 1)) / var(--columns));
+	--item-width: calc(calc(100% / var(--columns)) - var(--item-width-diff));
+
+	// margin: var(--gap) 0;
+
+	::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+
+	>.grid-sizer,
+	>.grid-item {
+		width: var(--item-width);
+	}
+
+	>.grid-gutter {
+		width: var(--gap);
+	}
+
+	>.grid-item {
+		float: left;
+		margin-bottom: var(--gap);
+	}
+
+}
+
+@media (max-width: 1800px) {
+	.masonry {
+		--columns: 4;
+	}
+}
+
+@media (max-width: 1024px) {
+	.masonry {
+		--columns: 3;
+	}
+}
+
+@media (max-width: 600px) {
+	.masonry {
+		--columns: 2;
+	}
+}
+

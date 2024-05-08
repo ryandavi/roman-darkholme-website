@@ -1,0 +1,12 @@
+<div class="${classes}" ${data.tags ? `data-tags="${data.tags}"` : ''}>
+	<div class="wrapper">
+		${data.image ? `<img class="image" ${data.title ? `title="${escapedTitle}" alt="${escapedTitle}"` : ''} src="${data.image}" />` : ''}
+		<div class="overlay meta">
+			${data.title ? `<div class="title">${data.title}</div>` : ''}
+			${data.project ? `<div class="project">${data.project}</div>` : ''}
+			${data.role ? `<div class="notes">${data.role}</div>` : ''}
+			${data.company ? `<div class="company">${data.company}</div>` : ''}
+			${data.notes ? `<div class="notes">${data.notes}</div>` : ''}
+		</div>
+	</div>
+</div>

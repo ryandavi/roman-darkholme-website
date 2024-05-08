@@ -1,0 +1,61 @@
+// Define breakpoints
+$breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1200px,
+);
+
+// Mixin for media query
+@mixin respond-to($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// Calculate column width
+@function calc-width($fraction) {
+  @return percentage($fraction / 6);
+}
+
+// Generate column classes
+@for $i from 1 through 6 {
+  .col-#{$i} {
+    flex: 0 0 auto;
+    width: calc-width($i);
+    max-width: calc-width($i);
+  }
+}
+
+// Responsive classes
+.responsive-cols {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include respond-to(medium) {
+    .col-1\@medium { width: calc-width(1); }
+    .col-2\@medium { width: calc-width(2); }
+    .col-3\@medium { width: calc-width(3); }
+    .col-4\@medium { width: calc-width(4); }
+    .col-5\@medium { width: calc-width(5); }
+    .col-6\@medium { width: calc-width(6); }
+  }
+
+  @include respond-to(large) {
+    .col-1\@large { width: calc-width(1); }
+    .col-2\@large { width: calc-width(2); }
+    .col-3\@large { width: calc-width(3); }
+    .col-4\@large { width: calc-width(4); }
+    .col-5\@large { width: calc-width(5); }
+    .col-6\@large { width: calc-width(6); }
+  }
+
+  @include respond-to(xlarge) {
+    .col-1\@xlarge { width: calc-width(1); }
+    .col-2\@xlarge { width: calc-width(2); }
+    .col-3\@xlarge { width: calc-width(3); }
+    .col-4\@xlarge { width: calc-width(4); }
+    .col-5\@xlarge { width: calc-width(5); }
+    .col-6\@xlarge { width: calc-width(6); }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="portfolio-piece ${data.orientation}" ${data.tags ? `data-tags="${data.tags}"` : ''}>
+	<div class="video-container ${data.orientation}">
+	<iframe loading="lazy" src="https://player.vimeo.com/video/${data.video}?mute=1&autoplay=0&loop=1&title=0&portrait=0&byline=0&speed=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"></iframe>
+	</div>
+	<div class="section-information grid">
+		${data.title ? `<h2 class="title col-4">${data.title}</h2>` : ''}
+		${data.description ? `<div class="description col-2">
+		<p>${data.description}</p>
+		${data.tags ? `<ul class="tags">${data.tags_html}</ul>` : ''}
+		</div>` : ''}
+	</div>
+
+</div>

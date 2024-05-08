@@ -1,0 +1,209 @@
+video:  https://vimeo.com/937510406
+title: OUR WEEKLY SHOW AT TRIXIE MOTEL!
+description: My animated video promos for our show at TRIXIE MOTEL
+tags: 
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474410
+title: TRIXIE MOTEL VISUALIZER
+description: MADE FOR FUN!
+tags: 
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926444815
+title: H&M + MOSCHINO COMMERCIAL
+description: Commissioned work! The commercial I animated for H&M + Moschino feat. my song "more than your name 1985"
+tags: video, commission, commercial, music
+type: video
+orientation: horizontal
+
+video: https://vimeo.com/926474238
+title: SLUT FOR BUTT PROMO
+description: Classic Slut For Butt T-shirt
+tags: video, animation, Slut For Butt, commercial
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474182
+Title: BEST OF THE WEEK: PROMO
+description:
+tags: video, animation, social media, 
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474219 
+title: AMARICA'S NEXT TOP ROMAN'S PHONE BACKGROUND: SAM
+Description: MADE FOR FUN! FEAT. SAM SALTER & my song "MORE THAN YOUR NAME 1985"
+tags: video, music
+type: video
+orientation: vertical
+
+Video: https://vimeo.com/926474258 
+Title: HOW I : MADE MY MALIK VISUALIZER
+description: HOW-TO
+tags: video, animation, how-to
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474278 
+title:DAMN ANTONIO!
+description:
+tags: video, visualizer
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474200 
+Title: GRINDR + MOSCHINO VISUALIZER
+Description: ANIMATED VISUALIZER FEAT. PHOTOS BY MARCUS MAM & MY SONG “BANG BANG BOOTY CALL”
+tags: video, music, commercial,  animation, music, model
+type: video 
+orientation: vertical
+
+video: https://vimeo.com/926474164 
+title: SPIDER-MAN CAM BOY
+description: Feat. my song "PARTY BOY"
+tags: video, music, animation
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474139 
+Title:  ROMAN iOS
+description: ANIMATED COMPUTER VISUALIZER FEAT. PHOTOS BY MARCUS MAM, MOSCHINO, & MY SONG “SLOWLY 2000”
+tags: video, music, model
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474117 
+title: DORIAN ELECTRA - CAREER BOY VISUALIZER
+Description: MADE FOR FUN! 
+tags: video, animation 
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474091 
+title: RUSH HOUR - INSTA PROMO 
+description: 
+tags: video, animation, social media
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474033 
+title: ANNA NICOLE RELOADED!
+description: 
+tags: video,
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926473970 
+title: ROMAN + HALO
+description: FEAT MY SON “TV”
+tags: video, music
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926473924?share=copy 
+title: HOW TO: ANIMATE A MOSCHINO VISUALIZER
+description: HOW-TO
+tags: video, how-to
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926473856 
+title: GUCCI + ROMAN
+description: GUCCI INSPIRED ANIMATION, FEAT. MY SONG “BOY IS FLY” 
+tags: video, music, model, animation, commercial
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926473787 
+title: HOW I : KYLIE SONIQUE LOVE - VISUALIZER
+description: HOW I MADE A VISUALIZER FOR KYLIE SONIQUE LOVE'S SONG "LOST ANGEL"
+tags: video, how-to
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474070 
+title: EDWARD OWNS MY ASS
+description: 
+tags: video
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926473696 
+title: FUN 2 FUCK VISUALIZER 
+description: 
+tags: video
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474421 
+title: MAC + PADMA
+description: FOR PADMA LAKSHMI'S MAC CAMPAIGN, FEAT MY SONG “TOUCH"
+tags: video, music, commission 
+type: video
+orientation: vertical
+
+Video: https://vimeo.com/926474396 
+title: MALIK DELGATY + BOYLICIOUS MAG
+description: MADE FOR FUN! Feat. MALIK DELGATY photographed by JORGE FREIRE
+tags: video
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474379 
+title: TRIXIE MATTEL & GIRL TALK
+description: MADE FOR FUN! Feat. TRIXIE MATTEL & the GIRL TALK pallet by TRIXIE COSMETICS
+tags: video, commercial, animation
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474365 
+title: DSQUARED2 + CHRISTIAN OITA – VISUALIZER
+description: 
+tags: video, animation
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474361 
+title: CHARLIE – MAKE EM' SQUIRTLE
+description: 
+tags: video, animation
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474351 
+title: KNOCKOUT BRUNCH PROMO
+description: 
+tags: video, commision, animation
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474338 
+title: PARIS IN LOVE –  SEASON TWO PROMO
+description: Animatic and theme song "PARIS IN LOVE" by me
+tags: video, music
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474324 
+title: MAC COSMETICS + PADMA LAKSHMI
+description: FEATURING MY SONG “TOUCH”
+tags: video, music, animation
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926474317 
+title: LINDA PARTY INVITE
+description: 
+tags: video, commission
+type: video
+orientation: vertical
+
+video: https://vimeo.com/926444211 
+Title: MOSCHINO H&M  (PHONE EDIT) 
+description: FOR THE 2018 MOSCHINO H&M  COLLAB,  DIRECTED, AND ANIMATED BY ME, PHOTO BY MARCUS MAM, MUSIC: "MORE THAN YOUR NAME 1985" BY ME 
+tags: video, music, commission, animation, art direction
+type: video
+orientation: vertical
