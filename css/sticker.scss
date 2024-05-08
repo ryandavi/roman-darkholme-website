@@ -93,7 +93,7 @@
 			opacity: 0;
 			cursor: move;
 			user-select: none;
-			filter: drop-shadow(2px 2px 2px #00000020);
+			//filter: drop-shadow(2px 2px 2px #00000020);
 			transition: opacity 0.3s linear, filter .2s ease-out;
 			will-change: filter;
 
@@ -129,7 +129,7 @@
 			}
 
 			&.dragging {
-				filter: drop-shadow(calc(var(--stickerPickUpSize) * 2) calc(var(--stickerPickUpSize) * 2) 4px #00000020);
+				// filter: drop-shadow(calc(var(--stickerPickUpSize) * 2) calc(var(--stickerPickUpSize) * 2) 4px #00000020);
 
 				img {
 					transform: scale(calc(var(--stickerImageScale) + .1));

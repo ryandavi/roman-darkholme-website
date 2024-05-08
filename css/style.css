@@ -465,6 +465,7 @@ section.portfolio.live .portfolio-column, section.portfolio.video .portfolio-col
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing);
+  width: 100%;
   max-width: var(--content-max-width);
   justify-content: center;
   gap: var(--spacing-small);
@@ -750,19 +751,25 @@ header.scrolled + .image .logo-wrapper img:active {
   section.portfolio.live .portfolio-column > .portfolio-piece, section.portfolio.video .portfolio-column > .portfolio-piece {
     --portfolio-columns: 2;
   }
+  section.portfolio.live .portfolio-column > .portfolio-piece.force-3-desktop > .portfolio-piece, section.portfolio.video .portfolio-column > .portfolio-piece.force-3-desktop > .portfolio-piece {
+    --portfolio-columns: 3;
+  }
   section.portfolio.live .portfolio-column > .portfolio-piece > .section-information, section.portfolio.video .portfolio-column > .portfolio-piece > .section-information {
     gap: var(--spacing-small);
   }
   section.portfolio.live .portfolio-column > .portfolio-piece > .section-information > h2.title, section.portfolio.video .portfolio-column > .portfolio-piece > .section-information > h2.title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
   section.portfolio.live .portfolio-column > .portfolio-piece > .section-information > .description, section.portfolio.video .portfolio-column > .portfolio-piece > .section-information > .description {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 }
 @media only screen and (max-width: 600px) {
   section.portfolio.live .portfolio-column > .portfolio-piece, section.portfolio.video .portfolio-column > .portfolio-piece {
     --portfolio-columns: 2;
+  }
+  section.portfolio.live .portfolio-column.force-3-desktop > .portfolio-piece, section.portfolio.video .portfolio-column.force-3-desktop > .portfolio-piece {
+    --portfolio-columns: 1;
   }
 }
 @keyframes jiggle {
@@ -802,7 +809,7 @@ header.scrolled + .image .logo-wrapper img:active {
     left: 0%;
   }
   .sticker-book .sticker-wrapper.timmy {
-    top: 50.0305%;
+    top: 54.0305%;
     left: 0%;
   }
   .sticker-book .sticker-wrapper.edward {

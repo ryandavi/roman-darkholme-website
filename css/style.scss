@@ -659,10 +659,12 @@ section {
 				display: flex;
 				flex-wrap: wrap;
 				gap: var(--spacing);
+				width: 100%;
 				max-width: var(--content-max-width);
 				justify-content: center;
-
 				gap: var(--spacing-small);
+
+
 
 				>.portfolio-piece {
 
@@ -1029,17 +1031,22 @@ header.scrolled + .image {
 					>.portfolio-piece {
 						--portfolio-columns: 2;
 						//flex: 0 0 100%!important;
-						
+
+						&.force-3-desktop {
+							>.portfolio-piece {
+								--portfolio-columns: 3;
+							}
+						}
 
 						>.section-information {
 							gap: var(--spacing-small);
 	
 							>h2.title {
-								font-size: 1.75rem;
+								font-size: 1.5rem;
 							}
 							
 							> .description {
-								font-size: 1.1rem;
+								font-size: 1.05rem;
 							}
 	
 						}
@@ -1069,6 +1076,15 @@ header.scrolled + .image {
 					>.portfolio-piece {
 						--portfolio-columns: 2;
 					}
+
+					&.force-3-desktop {
+
+						>.portfolio-piece {
+							--portfolio-columns: 1;
+						}
+	
+					}
+
 				}
 			}
 		}
@@ -1133,7 +1149,7 @@ header.scrolled + .image {
 			}
 
 			&.timmy {
-				top: 50.0305%;
+				top: 54.0305%;
 				left: 0%;
 			}
 
