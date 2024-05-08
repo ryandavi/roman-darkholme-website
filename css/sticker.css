@@ -49,8 +49,6 @@
   max-height: inherit;
 }
 .sticker-book .sticker-wrapper > .sticker img {
-  width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   user-drag: none;

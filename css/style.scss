@@ -492,7 +492,7 @@ section {
 			img.shirt {
 				border-radius: var(--border-radius);
 				max-height: var(--content-item-max-height);
-				
+				object-fit: contain;
 				width: 100%;
 			}
 		}
@@ -1042,11 +1042,20 @@ header.scrolled + .image {
 							gap: var(--spacing-small);
 	
 							>h2.title {
-								font-size: 1.5rem;
+								font-size: 1.35rem;
+								line-height: .95em;
 							}
 							
 							> .description {
-								font-size: 1.05rem;
+								font-size: 1.025rem;
+
+								>ul.tags {
+									> li {
+										padding: 8px 10px;
+										font-size: .6em;
+										line-height: 1em;
+									}
+								}
 							}
 	
 						}
@@ -1110,6 +1119,12 @@ header.scrolled + .image {
 .sticker-book {
 
 	.sticker-wrapper {
+
+
+		&.wendy {
+			left: 29.0278%;
+			top: 9.96354%;
+		}
 	
 		&.terri {
 			top: 14.826%; left: 59.4745%;
@@ -1124,7 +1139,8 @@ header.scrolled + .image {
 		}
 
 		&.edward {
-			top: 63.9616%; left: 63.7177%;
+			left: 62.9328%;
+			top: 55.9624%;
 		}
 
 
@@ -1137,6 +1153,10 @@ header.scrolled + .image {
 	.sticker-book {
 
 		.sticker-wrapper {
+
+			&.wendy {
+				left: 3.44477%; top: 26.4156%;
+			}
 		
 			&.terri {
 				top: 20.8549%;
@@ -1149,13 +1169,13 @@ header.scrolled + .image {
 			}
 
 			&.timmy {
-				top: 54.0305%;
-				left: 0%;
+				left: 2.94985%;
+				top: 50.3439%;
 			}
 
 			&.edward {
-				top: 56.2121%;
-				left: 75.3846%;
+				left: 77.6744%;
+				top: 57.8142%;
 			}
 
 

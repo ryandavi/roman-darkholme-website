@@ -356,6 +356,8 @@ section.portfolio > .portfolio-inner {
 section.portfolio.merch img.shirt {
   border-radius: var(--border-radius);
   max-height: var(--content-item-max-height);
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 section.portfolio.music iframe.spotify {
@@ -758,10 +760,16 @@ header.scrolled + .image .logo-wrapper img:active {
     gap: var(--spacing-small);
   }
   section.portfolio.live .portfolio-column > .portfolio-piece > .section-information > h2.title, section.portfolio.video .portfolio-column > .portfolio-piece > .section-information > h2.title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+    line-height: 0.95em;
   }
   section.portfolio.live .portfolio-column > .portfolio-piece > .section-information > .description, section.portfolio.video .portfolio-column > .portfolio-piece > .section-information > .description {
-    font-size: 1.05rem;
+    font-size: 1.025rem;
+  }
+  section.portfolio.live .portfolio-column > .portfolio-piece > .section-information > .description > ul.tags > li, section.portfolio.video .portfolio-column > .portfolio-piece > .section-information > .description > ul.tags > li {
+    padding: 8px 10px;
+    font-size: 0.6em;
+    line-height: 1em;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -782,6 +790,10 @@ header.scrolled + .image .logo-wrapper img:active {
     animation-timing-function: ease-out;
   }
 }
+.sticker-book .sticker-wrapper.wendy {
+  left: 29.0278%;
+  top: 9.96354%;
+}
 .sticker-book .sticker-wrapper.terri {
   top: 14.826%;
   left: 59.4745%;
@@ -795,11 +807,15 @@ header.scrolled + .image .logo-wrapper img:active {
   left: 26.4583%;
 }
 .sticker-book .sticker-wrapper.edward {
-  top: 63.9616%;
-  left: 63.7177%;
+  left: 62.9328%;
+  top: 55.9624%;
 }
 
 @media only screen and (max-width: 1024px) {
+  .sticker-book .sticker-wrapper.wendy {
+    left: 3.44477%;
+    top: 26.4156%;
+  }
   .sticker-book .sticker-wrapper.terri {
     top: 20.8549%;
     left: 75.6203%;
@@ -809,11 +825,11 @@ header.scrolled + .image .logo-wrapper img:active {
     left: 0%;
   }
   .sticker-book .sticker-wrapper.timmy {
-    top: 54.0305%;
-    left: 0%;
+    left: 2.94985%;
+    top: 50.3439%;
   }
   .sticker-book .sticker-wrapper.edward {
-    top: 56.2121%;
-    left: 75.3846%;
+    left: 77.6744%;
+    top: 57.8142%;
   }
 }/*# sourceMappingURL=style.css.map */
