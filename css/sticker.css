@@ -1,6 +1,6 @@
 .sticker-book {
   --stickerMaxSize: 200px;
-  --stickerMaxMobileSize: 125px;
+  --stickerMaxMobileSize: 100px;
   --stickerImageScale: 1.05;
   --stickerPickUpSize: 5px;
   --wiggleAmount: 1deg;
