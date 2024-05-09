@@ -12,22 +12,10 @@
 
 	z-index: 1000000000000;
 
-	&.test {
-		position: relative;
-		background-color: transparent;
-		pointer-events: none;
-
-		width: 100vw;
-		height: 100vh;
-		height: 100dvh;
-		width: 100dvw;
-	}
-
-
 	&.full-size {
-
-		/* Set a transparent background */
 		background-color: transparent;
+
+		// so you can click behind this div
 		pointer-events: none;
 
 		overflow: hidden;
@@ -37,14 +25,14 @@
 
 		width: 100vw;
 		height: 100vh;
+
+		// height of device with fallback
 		height: 100dvh;
 		width: 100dvw;
 
 		display: flex;
 		align-items: center;
 		justify-content: center;
-
-
 
 	}
 
@@ -54,20 +42,17 @@
 		opacity: 0;
 		transition: opacity 0.3s linear;
 		max-width: var(--stickerMaxSize);
-		// max-height: var(--stickerMaxSize);
 		pointer-events: auto;
 
-		will-change: top, left, transform;
+		will-change: top, left;
 
 		&.temp-shake {
-
 			animation: wiggle var(--wiggleDuration) ease 2;
 		}
 
 		>.sticker {
 			max-width: inherit;
 			max-height: inherit;
-
 
 			img {
 				// width: 100%;
@@ -83,9 +68,8 @@
 				transform: scale(calc(var(--stickerImageScale) + .25));
 			}
 
-
-
 		}
+
 
 
 
@@ -93,10 +77,8 @@
 			opacity: 0;
 			cursor: move;
 			user-select: none;
-			//filter: drop-shadow(2px 2px 2px #00000020);
-			transition: opacity 0.3s linear, filter .2s ease-out;
-			will-change: filter;
-
+			transition: opacity 0.3s linear;
+			
 			&.visible {
 				opacity: 1;
 
@@ -110,13 +92,6 @@
 			}
 
 			>.sticker {
-				img {
-					position: relative;
-					top: 0;
-					left: 0;
-					transition: transform .2s, top .2s ease-out, left .2s ease-out, ;
-				}
-
 				a {
 					pointer-events: none;
 					max-width: inherit;
@@ -125,19 +100,37 @@
 					height: 100%;
 					display: block;
 				}
-
 			}
+		}
 
-			&.dragging {
-				// filter: drop-shadow(calc(var(--stickerPickUpSize) * 2) calc(var(--stickerPickUpSize) * 2) 4px #00000020);
 
-				img {
-					transform: scale(calc(var(--stickerImageScale) + .1));
-					top: calc(var(--stickerPickUpSize) * -1);
-					left: calc(var(--stickerPickUpSize) * -1);
+		&.addDepth {
+			will-change: filter;
+			filter: drop-shadow(2px 2px 2px #00000020);
+
+			&.draggable {
+				transition: opacity 0.3s linear, filter .2s ease-out;
+				>.sticker {
+					img {
+						position: relative;
+						top: 0;
+						left: 0;
+						transition: transform .2s, top .2s ease-out, left .2s ease-out;
+					}
+				}
+
+				&.dragging {
+					filter: drop-shadow(calc(var(--stickerPickUpSize) * 2) calc(var(--stickerPickUpSize) * 2) 4px #00000020);
+
+					img {
+						transform: scale(calc(var(--stickerImageScale) + .1));
+						top: calc(var(--stickerPickUpSize) * -1);
+						left: calc(var(--stickerPickUpSize) * -1);
+					}
 				}
 			}
 		}
+
 	}
 }
 
@@ -153,7 +146,6 @@
 }
 
 @keyframes wiggle {
-
 	0%,
 	100% {
 		transform: rotate(0deg);

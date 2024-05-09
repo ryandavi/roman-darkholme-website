@@ -7,17 +7,7 @@
   --wiggleDuration: .6s;
   z-index: 1000000000000;
 }
-.sticker-book.test {
-  position: relative;
-  background-color: transparent;
-  pointer-events: none;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  width: 100dvw;
-}
 .sticker-book.full-size {
-  /* Set a transparent background */
   background-color: transparent;
   pointer-events: none;
   overflow: hidden;
@@ -39,7 +29,7 @@
   transition: opacity 0.3s linear;
   max-width: var(--stickerMaxSize);
   pointer-events: auto;
-  will-change: top, left, transform;
+  will-change: top, left;
 }
 .sticker-book .sticker-wrapper.temp-shake {
   animation: wiggle var(--wiggleDuration) ease 2;
@@ -64,20 +54,13 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  transition: opacity 0.3s linear, filter 0.2s ease-out;
-  will-change: filter;
+  transition: opacity 0.3s linear;
 }
 .sticker-book .sticker-wrapper.draggable.visible {
   opacity: 1;
 }
 .sticker-book .sticker-wrapper.draggable.visible > .sticker img {
   transform: scale(var(--stickerImageScale));
-}
-.sticker-book .sticker-wrapper.draggable > .sticker img {
-  position: relative;
-  top: 0;
-  left: 0;
-  transition: transform 0.2s, top 0.2s ease-out, left 0.2s ease-out;
 }
 .sticker-book .sticker-wrapper.draggable > .sticker a {
   pointer-events: none;
@@ -87,7 +70,23 @@
   height: 100%;
   display: block;
 }
-.sticker-book .sticker-wrapper.draggable.dragging img {
+.sticker-book .sticker-wrapper.addDepth {
+  will-change: filter;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.1254901961));
+}
+.sticker-book .sticker-wrapper.addDepth.draggable {
+  transition: opacity 0.3s linear, filter 0.2s ease-out;
+}
+.sticker-book .sticker-wrapper.addDepth.draggable > .sticker img {
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: transform 0.2s, top 0.2s ease-out, left 0.2s ease-out;
+}
+.sticker-book .sticker-wrapper.addDepth.draggable.dragging {
+  filter: drop-shadow(calc(var(--stickerPickUpSize) * 2) calc(var(--stickerPickUpSize) * 2) 4px rgba(0, 0, 0, 0.1254901961));
+}
+.sticker-book .sticker-wrapper.addDepth.draggable.dragging img {
   transform: scale(calc(var(--stickerImageScale) + 0.1));
   top: calc(var(--stickerPickUpSize) * -1);
   left: calc(var(--stickerPickUpSize) * -1);

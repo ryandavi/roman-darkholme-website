@@ -31,13 +31,12 @@ var StickerApp = {
 	isAccelerated: true,
 	accelerationFactor: .9,
 
-
-
+	//depth (scaling, shadows)
+	doDepth: false,
+	depthClassName: "addDepth",
 
 	// starting rotation
 	doRotate: false,
-
-
 
 	// placement
 	doRandomPlacement: false,
@@ -271,6 +270,11 @@ var StickerApp = {
 			// Make it already visible if not doing
 			if(self.doReveal == false){
 				item.classList.add(self.revealClassName);
+			}
+
+			// Make it already visible if not doing
+			if(self.doDepth == true){
+				item.classList.add(self.depthClassName);
 			}
 
 			function startDrag(event) {
