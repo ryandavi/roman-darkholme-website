@@ -93,7 +93,7 @@
   left: calc(var(--stickerPickUpSize) * -1);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .sticker-book .sticker-wrapper {
     max-width: var(--stickerMaxMobileSize);
     max-height: var(--stickerMaxMobileSize);

@@ -5,7 +5,7 @@
 	--stickerMaxMobileSize: 100px;
 	--stickerImageScale: 1.05;
 	--stickerPickUpSize: 5px;
-	
+
 	// wiggle var
 	--wiggleAmount: 1deg;
 	--wiggleDuration: .6s;
@@ -77,13 +77,13 @@
 				max-width: inherit;
 				max-height: inherit;
 				transition: transform .2s;
-				display:block;
-	
+				display: block;
+
 				// make it larger before showing it so it animates smaller
 				transform: scale(calc(var(--stickerImageScale) + .25));
 			}
-	
-	
+
+
 
 		}
 
@@ -109,14 +109,14 @@
 				}
 			}
 
-			> .sticker {
+			>.sticker {
 				img {
 					position: relative;
 					top: 0;
 					left: 0;
 					transition: transform .2s, top .2s ease-out, left .2s ease-out, ;
 				}
-	
+
 				a {
 					pointer-events: none;
 					max-width: inherit;
@@ -125,7 +125,7 @@
 					height: 100%;
 					display: block;
 				}
-	
+
 			}
 
 			&.dragging {
@@ -142,8 +142,7 @@
 }
 
 
-
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
 
 	.sticker-book {
 		.sticker-wrapper {
@@ -151,17 +150,21 @@
 			max-height: var(--stickerMaxMobileSize);
 		}
 	}
-
 }
 
 @keyframes wiggle {
-	0%, 100% {
-	  transform: rotate(0deg);
+
+	0%,
+	100% {
+		transform: rotate(0deg);
 	}
-	25%, 75% {
-	  transform: rotate(var(--wiggleAmount));
+
+	25%,
+	75% {
+		transform: rotate(var(--wiggleAmount));
 	}
+
 	50% {
-	  transform: rotate(calc(-1 * var(--wiggleAmount)));
+		transform: rotate(calc(-1 * var(--wiggleAmount)));
 	}
-  }
+}
