@@ -8,7 +8,7 @@ var StickerApp = {
 	sticker_item_innerName: ".sticker",
 
 	// shake
-	doShake: false,
+	doShake: true,
 	sticker_shakeDuration: 1200,
 	sticker_shakeInterval: 4000,
 
