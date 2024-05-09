@@ -797,6 +797,7 @@ header.scrolled + .image .logo-wrapper img:active {
 .sticker-book .sticker-wrapper.terri {
   top: 14.826%;
   left: 59.4745%;
+  max-width: 150px;
 }
 .sticker-book .sticker-wrapper.spiderman {
   top: 8.68878%;
@@ -809,6 +810,7 @@ header.scrolled + .image .logo-wrapper img:active {
 .sticker-book .sticker-wrapper.edward {
   left: 62.9328%;
   top: 55.9624%;
+  max-width: 150px;
 }
 
 @media only screen and (max-width: 1024px) {
