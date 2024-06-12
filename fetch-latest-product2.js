@@ -1,7 +1,6 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
 
-// Use environment variables for sensitive data
+const fetch = require('node-fetch');
+
 const accessToken = process.env.SHOPIFY_ACCESS_TOKEN;
 const shopifyStore = 'slutforbutt.myshopify.com';
 
@@ -25,27 +24,22 @@ const query = `
 }
 `;
 
-async function fetchAndWriteProducts() {
-  try {
-    const response = await fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': accessToken,
-      },
-      body: JSON.stringify({ query }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error ${response.status}`);
+fetch(`https://${shopifyStore}/admin/api/2021-07/graphql.json`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/graphql',
+    'X-Shopify-Access-Token': accessToken,
+  },
+  body: query,
+})
+  .then(res => res.json())
+  .then(data => {
+    if (data.errors) {
+      console.error('GraphQL Errors:', data.errors);
+    } else {
+      console.log('Products:', data.data.products);
     }
-
-    const data = await response.json();
-    fs.writeFileSync('latestProduct.json', JSON.stringify(data, null, 2));
-    console.log('Product data written to latestProduct.json');
-  } catch (error) {
-    console.error('Error fetching and writing product data:', error);
-  }
-}
-
-fetchAndWriteProducts();
+  })
+  .catch(error => {
+    console.error('Error fetching products:', error);
+  });
