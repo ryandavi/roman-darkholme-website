@@ -28,7 +28,7 @@ fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'X-Shopify-Storefront-Access-Token': accessToken,
+    'X-Shopify-Access-Token': accessToken,
   },
   body: JSON.stringify({ query }),
 })
