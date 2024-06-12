@@ -35,13 +35,15 @@ fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
   .then(res => res.json())
   .then(data => {
     if (data && data.data && data.data.products && data.data.products.edges && data.data.products.edges.length > 0) {
-      const product = data.data.products.edges[0].node;
-      const productData = {
-        title: product.title,
-        url: `https://${shopifyStore}/products/${product.handle}`,
-        imageUrl: product.images.edges.length > 0 ? product.images.edges[0].node.src : null
-      };
-      fs.writeFileSync('latestProduct.json', JSON.stringify(productData, null, 2));
+      const products = data.data.products.edges.map(edge => {
+        const product = edge.node;
+        return {
+          title: product.title,
+          url: `https://${shopifyStore}/products/${product.handle}`,
+          imageUrl: product.images.edges.length > 0 ? product.images.edges[0].node.src : null
+        };
+      });
+      fs.writeFileSync('latestProducts.json', JSON.stringify(products, null, 2));
     } else {
       console.error('Error: No product data found in the response');
     }
