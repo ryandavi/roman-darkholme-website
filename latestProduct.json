@@ -1,1 +1,13 @@
-{}
+{
+  "errors": [
+    {
+      "message": "syntax error, unexpected STRING (\"query\") at [1, 2]",
+      "locations": [
+        {
+          "line": 1,
+          "column": 2
+        }
+      ]
+    }
+  ]
+}
