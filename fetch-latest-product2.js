@@ -4,25 +4,16 @@ const fs = require('fs');
 const accessToken = process.env.SHOPIFY_ACCESS_TOKEN;
 const shopifyStore = 'slutforbutt.myshopify.com';
 
-const query = `
-{
-  products(first: 10, sortKey: CREATED_AT, reverse: false, query: "collection:tickets") {
+const query = `{
+  products (first: 3) {
     edges {
       node {
+        id
         title
-        handle
-        images(first: 1) {
-          edges {
-            node {
-              src
-            }
-          }
-        }
       }
     }
   }
-}
-`;
+}`
 
 fetch(`https://${shopifyStore}/admin/api/2021-07/graphql.json`, {
 	method: 'POST',
