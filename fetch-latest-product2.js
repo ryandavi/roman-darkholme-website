@@ -6,7 +6,7 @@ const shopifyStore = 'slutforbutt.myshopify.com';
 
 const query = `
 {
-  products(first: 1, sortKey: CREATED_AT, reverse: true, query: "product_type:your_product_type") {
+  products(first: 10, sortKey: CREATED_AT, reverse: false, query: "collection:tickets") {
     edges {
       node {
         title
@@ -34,13 +34,17 @@ fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
 })
   .then(res => res.json())
   .then(data => {
-    const product = data.data.products.edges[0].node;
-    const productData = {
-      title: product.title,
-      url: `https://${shopifyStore}/products/${product.handle}`,
-      imageUrl: product.images.edges[0].node.src
-    };
-    fs.writeFileSync('latestProduct.json', JSON.stringify(productData, null, 2));
+    if (data && data.data && data.data.products && data.data.products.edges && data.data.products.edges.length > 0) {
+      const product = data.data.products.edges[0].node;
+      const productData = {
+        title: product.title,
+        url: `https://${shopifyStore}/products/${product.handle}`,
+        imageUrl: product.images.edges.length > 0 ? product.images.edges[0].node.src : null
+      };
+      fs.writeFileSync('latestProduct.json', JSON.stringify(productData, null, 2));
+    } else {
+      console.error('Error: No product data found in the response');
+    }
   })
   .catch(error => {
     console.error('Error fetching latest product:', error);
