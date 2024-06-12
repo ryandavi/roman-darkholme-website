@@ -37,6 +37,7 @@ fetch(`https://${shopifyStore}/admin/api/2021-07/graphql.json`, {
 	.then(res => res.json())
 	.then(data => {
 
+		/*
 		const products = data.data.collectionByHandle.products.edges;
 
 		let productData = [];
@@ -54,6 +55,9 @@ fetch(`https://${shopifyStore}/admin/api/2021-07/graphql.json`, {
 		});
 
 		// productData = data;
+		*/
+
+		let productData = data;
 
 
 		fs.writeFileSync('latestProduct.json', JSON.stringify(productData, null, 2));
