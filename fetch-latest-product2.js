@@ -34,23 +34,7 @@ fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
 })
   .then(res => res.json())
   .then(data => {
-    if (data && data.data && data.data.products && data.data.products.edges && data.data.products.edges.length > 0) {
-      const products = data.data.products.edges.map(edge => {
-        if (edge && edge.node) { // Add this null check
-          const product = edge.node;
-          return {
-            title: product.title,
-            url: `https://${shopifyStore}/products/${product.handle}`,
-            imageUrl: product.images?.edges.length > 0 ? product.images.edges[0].node.src : null
-          };
-        }
-        return null; // Return null for undefined edges
-      }).filter(product => product !== null); // Filter out null values
-
-      fs.writeFileSync('latestProducts.json', JSON.stringify(products, null, 2));
-    } else {
-      console.error('Error: No product data found in the response');
-    }
+    fs.writeFileSync('latestProducts.json', JSON.stringify(data, null, 2)); // Write the entire JSON response to file
   })
   .catch(error => {
     console.error('Error fetching latest product:', error);
