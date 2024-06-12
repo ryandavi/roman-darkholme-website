@@ -489,6 +489,7 @@ section {
 
 		&.ticket {
 			width: 100%;
+			min-height: unset;
 		}
 
 
@@ -529,6 +530,7 @@ section {
 		}
 
 
+		&.ticket,
 		&.photo,
 		&.music,
 		&.merch {

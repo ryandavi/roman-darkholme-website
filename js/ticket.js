@@ -34,13 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Function to fetch Shopify tickets
 	function fetchShopifyTickets() {
-		fetch(`https://hunterclem.com/api/shopify.php`)
+		fetch(`./latestProduct.json`)
 			.then(response => response.json())
 			.then(data => {
 				// Hide loading animation
 				loading.style.display = 'none';
 
-				const tickets = data.data.collectionByHandle.products.edges;
+
+				const tickets = data?.data?.collectionByHandle?.products?.edges ?? [];
 
 				if(tickets.length == 0){
 					document.getElementById('no-event').style.display = 'block';
@@ -53,32 +54,43 @@ document.addEventListener("DOMContentLoaded", function () {
 					const handle = node.handle;
 					const imageUrl = node.images.edges[0].node.src;
 
+					let event, dateStr, formattedDate, dayOfWeek, venue = "";
+
 					// Split the title by "|"
 					const parts = title.split('|').map(part => part.trim());
 
-					// Assign parts to variables
-					const event = parts[0];
-					const dateStr = parts[2];
-					const venue = parts[3];
 
-					// Extract and format the date
-					const dateRegex = /(\d{1,2})-(\d{1,2})-(\d{2})/;
-					const dateMatch = dateStr.match(dateRegex);
-					let formattedDate = dateStr;
-					let dayOfWeek = '';
 
-					if (dateMatch) {
-						const month = parseInt(dateMatch[1], 10) - 1; // JavaScript months are 0-based
-						const day = parseInt(dateMatch[2], 10);
-						const year = 2000 + parseInt(dateMatch[3], 10);
+					if(parts.length != 4){
+						event = title;
+					}else{
+						// Assign parts to variables
+						event = parts[0];
+						dateStr = parts[2];
+						venue = parts[3];
 
-						const date = new Date(year, month, day);
+						if(dateStr){
+							formattedDate = dateStr;
+							// Extract and format the date
+							const dateRegex = /(\d{1,2})-(\d{1,2})-(\d{2})/;
+							const dateMatch = dateStr.match(dateRegex);
 
-						const options = { month: 'long', day: 'numeric', year: 'numeric' };
-						formattedDate = date.toLocaleDateString('en-US', options);
 
-						// Get day of the week
-						dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
+							if (dateMatch) {
+								const month = parseInt(dateMatch[1], 10) - 1; // JavaScript months are 0-based
+								const day = parseInt(dateMatch[2], 10);
+								const year = 2000 + parseInt(dateMatch[3], 10);
+
+								const date = new Date(year, month, day);
+
+								const options = { month: 'long', day: 'numeric', year: 'numeric' };
+								formattedDate = date.toLocaleDateString('en-US', options);
+
+								// Get day of the week
+								dayOfWeek = date.toLocaleDateString('en-US', { weekday: 'long' });
+							}
+
+						}
 					}
 
 					const ticketDiv = document.createElement('div');

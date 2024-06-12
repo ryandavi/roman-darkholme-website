@@ -355,6 +355,7 @@ section.portfolio > .portfolio-inner {
 }
 section.portfolio.ticket {
   width: 100%;
+  min-height: unset;
 }
 section.portfolio.merch img.shirt {
   border-radius: var(--border-radius);
@@ -376,7 +377,7 @@ section.portfolio.photo {
 section.portfolio.photo .section-information {
   margin-bottom: var(--spacing);
 }
-section.portfolio.photo, section.portfolio.music, section.portfolio.merch {
+section.portfolio.ticket, section.portfolio.photo, section.portfolio.music, section.portfolio.merch {
   padding: 200px var(--spacing);
 }
 section.portfolio.live .ikea-wrapper {

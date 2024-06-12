@@ -59,6 +59,9 @@
   flex: 1 0 100%;
   text-align: center;
   display: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
 }
 
 @media (max-width: 1024px) {
