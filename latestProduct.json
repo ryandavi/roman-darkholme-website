@@ -1,13 +1,49 @@
 {
-  "errors": [
-    {
-      "message": "syntax error, unexpected LBRACKET (\"[\") at [1, 1]",
-      "locations": [
+  "data": {
+    "products": {
+      "edges": [
         {
-          "line": 1,
-          "column": 1
+          "node": {
+            "title": "Slut For Butt –  Signature T-shirt",
+            "handle": "slut-for-butt-t-shirt",
+            "images": {
+              "edges": [
+                {
+                  "node": {
+                    "src": "https://cdn.shopify.com/s/files/1/0736/7770/1399/files/S4B_demo_2.png?v=1683153921"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "node": {
+            "title": "SLUT FOR BUTT LIVE | TICKET | WED 6-26-24 | The Duchess Tea Room",
+            "handle": "slut-for-butt-live-ticket-wednesday-6-26-24-the-duchess-tea-room",
+            "images": {
+              "edges": [
+                {
+                  "node": {
+                    "src": "https://cdn.shopify.com/s/files/1/0736/7770/1399/files/05_SlutForButtLive_PRESSimage-Recovered.png?v=1718063455"
+                  }
+                }
+              ]
+            }
+          }
         }
       ]
     }
-  ]
+  },
+  "extensions": {
+    "cost": {
+      "requestedQueryCost": 18,
+      "actualQueryCost": 6,
+      "throttleStatus": {
+        "maximumAvailable": 2000,
+        "currentlyAvailable": 1994,
+        "restoreRate": 100
+      }
+    }
+  }
 }
