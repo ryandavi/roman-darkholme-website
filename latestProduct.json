@@ -1,11 +1,11 @@
 {
   "errors": [
     {
-      "message": "syntax error, unexpected STRING (\"query\") at [1, 2]",
+      "message": "syntax error, unexpected LBRACKET (\"[\") at [1, 1]",
       "locations": [
         {
           "line": 1,
-          "column": 2
+          "column": 1
         }
       ]
     }
