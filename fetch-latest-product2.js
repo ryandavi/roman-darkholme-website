@@ -30,7 +30,7 @@ fetch(`https://${shopifyStore}/admin/api/2021-07/graphql.json`, {
 		'Content-Type': 'application/graphql',
 		'X-Shopify-Access-Token': accessToken,
 	},
-	body: {query},
+	body: query,
 })
 	.then(res => res.json())
 	.then(data => {
