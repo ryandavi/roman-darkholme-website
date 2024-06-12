@@ -40,7 +40,7 @@ fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
         return {
           title: product.title,
           url: `https://${shopifyStore}/products/${product.handle}`,
-          imageUrl: product.images.edges.length > 0 ? product.images.edges[0].node.src : null
+          imageUrl: product.images?.edges.length > 0 ? product.images.edges[0].node.src : null
         };
       });
       fs.writeFileSync('latestProducts.json', JSON.stringify(products, null, 2));
