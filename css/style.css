@@ -353,6 +353,9 @@ section.portfolio > .portfolio-inner {
   align-items: center;
   justify-content: center;
 }
+section.portfolio.ticket {
+  width: 100%;
+}
 section.portfolio.merch img.shirt {
   border-radius: var(--border-radius);
   max-height: var(--content-item-max-height);
