@@ -34,7 +34,13 @@ fetch(`https://${shopifyStore}/api/2023-04/graphql.json`, {
 })
   .then(res => res.json())
   .then(data => {
-    fs.writeFileSync('latestProduct.json', JSON.stringify(data, null, 2));
+    const product = data.data.products.edges[0].node;
+    const productData = {
+      title: product.title,
+      url: `https://${shopifyStore}/products/${product.handle}`,
+      imageUrl: product.images.edges[0].node.src
+    };
+    fs.writeFileSync('latestProduct.json', JSON.stringify(productData, null, 2));
   })
   .catch(error => {
     console.error('Error fetching latest product:', error);
