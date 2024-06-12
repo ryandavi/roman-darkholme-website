@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const fs = require('fs');
 
 const accessToken = process.env.SHOPIFY_ACCESS_TOKEN;
-const shopifyStore = 'slutforbutt.myshopify.com';
+const shopifyStore = 'https://slutforbutt.myshopify.com';
 
 const query = `
 {
