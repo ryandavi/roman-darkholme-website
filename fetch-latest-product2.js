@@ -6,15 +6,17 @@ const shopifyStore = 'slutforbutt.myshopify.com';
 
 const query = `
 {
-  products(first: 10, sortKey: CREATED_AT, reverse: false, query: "collection:tickets") {
-    edges {
-      node {
-        title
-        handle
-        images(first: 1) {
-          edges {
-            node {
-              src
+  collectionByHandle(handle: "tickets") {
+    products(first: 10) {
+      edges {
+        node {
+          title
+          handle
+          images(first: 1) {
+            edges {
+              node {
+                src
+              }
             }
           }
         }
