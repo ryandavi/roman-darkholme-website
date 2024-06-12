@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Fetch latest product
-        run: node ./fetch-latest-product.js
+        run: node ../fetch-latest-product.js
         env:
           SHOPIFY_ACCESS_TOKEN: ${{ secrets.SHOPIFY_ACCESS_TOKEN }}
 
