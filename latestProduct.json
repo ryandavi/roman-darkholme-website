@@ -29,7 +29,7 @@
       "throttleStatus": {
         "maximumAvailable": 2000,
         "currentlyAvailable": 1993,
-        "restoreRate": 87
+        "restoreRate": 100
       }
     }
   }
